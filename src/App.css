@@ -1,21 +1,103 @@
-a {
+.link {
   color: inherit;
   text-decoration: none;
+  display: inline;
+}
+
+html {
+  overflow: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: lightskyblue;
+  font-size: calc(10px + 3vmin);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  height: 30vh;
+  width: auto;
+  margin: 2vw;
+}
+
+@media screen and (max-width: 800px) {
+  img {
+    height: 10vh;
+  }
+}
+
+.spacer {
+  height: 10vh;
+  pointer-events: none;
+}
+
+.img-row {
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.img-container {
+  pointer-events: none;
+}
+
+.text-container {
+  margin: 2vw;
+  position: absolute;
+  overflow: hidden;
+}
+
+.slideright-enter {
+  opacity: 0;
+  transform: translateX(-200%);
+}
+.slideright-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: transform 1s, opacity 1s;
+}
+.slideright-exit {
+  opacity: 1;
+  transform: translateX(0);
+}
+.slideright-exit-active {
+  opacity: 0;
+  transform: translateX(200%);
+  transition: transform 1s, opacity 1s;
+}
+
+.slideleft-enter {
+  opacity: 0;
+  transform: translateX(200%);
+}
+.slideleft-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: transform 1s, opacity 1s;
+}
+.slideleft-exit {
+  opacity: 1;
+  transform: translateX(0);
+}
+.slideleft-exit-active {
+  opacity: 0;
+  transform: translateX(-200%);
+  transition: transform 1s, opacity 1s;
 }
 
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+  overflow: hidden;
 }
 
 .App-header {
@@ -30,10 +112,7 @@ a {
   user-select: none;
   -moz-user-select: none;
   -webkit-user-select: none;
-}
-
-.App-link {
-  color: #61dafb;
+  overflow: hidden;
 }
 
 .Name {
@@ -49,13 +128,31 @@ a {
 }
 
 .Slider-item {
-  font-size: 3vh;
-  margin: auto 10vw;
-  display: inline;
+  font-size: calc(16px + 2vmin);
+  margin-right: 8vw;
+  display: inline-block;
   opacity: 0.2;
 }
 
+@media screen and (max-width: 800px) {
+  .Slider-item {
+    margin-right: 5.5vw;
+  }
+}
+
 .Slider-item.active-enter-done {
+  opacity: 1;
+}
+
+.Slider-item.active-appear {
+  opacity: 1;
+}
+
+.Slider-item.active-appear-active {
+  opacity: 1;
+}
+
+.Slider-item.active-appear-done {
   opacity: 1;
 }
 
@@ -71,13 +168,4 @@ a {
 .Slider-item.active-exit-active {
   opacity: 0.2;
   transition: opacity 1s;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
